@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:contentDescription="@string/avatar"
+        android:scaleType="centerCrop"
+        android:src="@drawable/enot"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_name"
+        style="@style/MyTextInputLayoutName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/image">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_telephone"
+        style="@style/MyTextInputLayoutPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="@string/telephone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_input_name">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/telephone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="phone" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/gender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/gender"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/text_input_telephone" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gender">
+
+        <RadioButton
+            android:id="@+id/radioM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/M" />
+
+        <RadioButton
+            android:id="@+id/radioW"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/W" />
+
+    </RadioGroup>
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/receive_notifications"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/receive_notifications"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+    <!--android:checked="true"-->
+    <com.google.android.material.checkbox.MaterialCheckBox
+        android:id="@+id/checkbox1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:text="@string/auth_on_device"
+        app:buttonTint="#03DAC5"
+        app:layout_constraintTop_toBottomOf="@+id/receive_notifications" />
+
+    <com.google.android.material.checkbox.MaterialCheckBox
+        android:id="@+id/checkbox2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:text="@string/news"
+        app:buttonTint="#03DAC5"
+        app:layout_constraintTop_toBottomOf="@id/checkbox1" />
+
+    <LinearLayout
+        android:id="@+id/scores"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/checkbox2">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/scores"
+            android:textColor="#444444"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/count_scores"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:textColor="#444444"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:progress="0"
+        app:layout_constraintTop_toBottomOf="@id/scores"
+        app:trackThickness="5dp" />
+
+    <Button
+        android:id="@+id/button_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:enabled="false"
+        android:text="@string/save"
+        app:layout_constraintTop_toBottomOf="@+id/progress" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
